@@ -1,0 +1,17 @@
+type Mutation {
+	createStudent(createStudentRequest : CreateStudentRequest) : StudentResponse #Student Response already defined in query.graphqls
+}
+
+input CreateStudentRequest {
+	firstName : String
+	lastName : String
+	email : String
+	street : String
+	city : String
+	subjectLearnings : [CreateSubjectRequest]
+}
+
+input CreateSubjectRequest {
+	subjectName : String
+	marksObtained : Float
+}

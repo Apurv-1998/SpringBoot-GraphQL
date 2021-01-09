@@ -1,0 +1,45 @@
+type Query {
+	firstQuery : String
+	secondQuery : String
+	fullName(sampleRequest : SampleRequest) : String
+	getStudentDetails(id : Long) : StudentResponse
+}
+
+input SampleRequest {
+	firstName : String!
+	lastName : String
+}
+
+
+#Since this class is the return type and not input
+
+type StudentResponse{
+
+	id : Long
+	firstName :  String
+	lastName : String
+	email : String
+	street : String
+	city : String
+	learningSubjects(subjectNameFilter : SubjectNameFilter) : [SubjectResponse]  #list of subject Response since StudentResponse is in the type Field we do not require it to mention in the argument 
+	fullName : String
+	
+
+}
+
+type SubjectResponse {
+
+	id : Long
+	subjectName : String
+	marksObtained : Float # No concept of double in schema file
+
+}
+
+enum SubjectNameFilter {
+	
+	All,
+	Java,
+	MySQL,
+	MongoDB
+
+}

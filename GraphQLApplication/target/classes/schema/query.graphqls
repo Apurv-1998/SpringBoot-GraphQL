@@ -1,0 +1,20 @@
+#Here Query refers to Query.java file
+#Methods inside Query file, Arguments in the method, Return Type
+
+type Query {
+	firstQuery : String
+	secondQuery : String
+	thirdQuery(a : String, b : String) : String
+	fullName(sample : SampleRequest) :  String
+}
+
+#We need to provide the schema for SampleRequest Class
+
+input SampleRequest {
+	
+	#adding validation that firstName cannot be null
+	
+	firstName : String! # '!' indicates that cannot be null
+	lastName : String
+
+}
